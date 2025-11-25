@@ -5,6 +5,9 @@ import mongoose from 'mongoose';
 import auth from "./routes/auth.js"
 import cookieParser from 'cookie-parser';
 import profile from './routes/profile.js';
+import posts from './routes/posts.js';
+
+
 const app = express();
 dotenv.config();
 
@@ -46,7 +49,8 @@ app.get("/", (Request,Response)=>{
 })
 
 app.use("/api/auth", auth);
-app.use("/api/profile",profile)
+app.use("/api/profile",profile);
+app.use("/api/posts",posts);
 
 async function callback() { 
     console.log("Listening on PORT", PORT);
