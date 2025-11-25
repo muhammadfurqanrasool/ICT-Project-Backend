@@ -14,7 +14,6 @@ export const authenticateJWT = (Request, Response, Next) => {
     }
     try {
         const decoded = jwt.verify(token, SECRET_KEY);
-        console.log("decoded : ", decoded.user_id);
         Request.user_id = decoded?.user_id; 
         Next(); 
 
