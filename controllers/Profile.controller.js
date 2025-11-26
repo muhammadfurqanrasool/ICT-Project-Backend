@@ -42,7 +42,6 @@ export async function getPeople(Request,Response) {
     const {user_id} = Request;
     try {
         const user = await User.findById(user_id);
-        console.log(user.friends)
         const people = await User.find({_id: {$ne: user_id}}, {fullName: 1, photoURL:1, _id:1, status:1});
         return Response.status(200).json(people);
     } catch (error) {
